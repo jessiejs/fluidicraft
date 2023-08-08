@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "jessiejs.fluidicraft.mixin.client",
+	"compatibilityLevel": "JAVA_17",
+	"client": [
+		"PressableWidgetMixin",
+		"SliderWidgetMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

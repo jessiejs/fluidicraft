@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "fluidicraft",
+	"version": "${version}",
+	"name": "fluidicraft",
+	"description": "This mod makes the buttons look pretty!",
+	"authors": [
+		"jessiejs"
+	],
+	"contact": {
+		"homepage": "https://github.com/jessiejs"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/fluidicraft/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"jessiejs.fluidicraft.FluidicraftMod"
+		],
+		"client": [
+			"jessiejs.fluidicraft.FluidicraftClientMod"
+		]
+	},
+	"mixins": [
+		"fluidicraft.mixins.json",
+		{
+			"config": "fluidicraft.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+	}
+}
