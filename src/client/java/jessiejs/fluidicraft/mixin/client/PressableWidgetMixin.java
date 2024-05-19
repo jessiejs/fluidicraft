@@ -25,11 +25,6 @@ public class PressableWidgetMixin {
 		return ((PressableWidget)((Object)this));
 	}
 
-	private float getAlpha() throws Exception {
-		PressableWidget self = getBase();
-		return self.getClass().getField("alpha").getFloat(self);
-	}
-
     private int getTextureY() {
 		PressableWidget self = getBase();
         int i = 1;
@@ -40,6 +35,10 @@ public class PressableWidgetMixin {
         }
         return 46 + i * 20;
     }
+
+	private float getAlpha() {
+		return ((ClickableWidgetAccessor)((Object)this)).getAlpha();
+	}
 
 	@Overwrite
 	public void renderButton(DrawContext context, int mouseX, int mouseY, float delta) throws Exception {

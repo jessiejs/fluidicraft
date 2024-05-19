@@ -17,14 +17,12 @@ public class SliderWidgetMixin {
 		return ((SliderWidget) ((Object) this));
 	}
 
-	private float getAlpha() throws Exception {
-		SliderWidget self = getBase();
-		return self.getClass().getField("alpha").getFloat(self);
+	private double getValue() {
+		return ((SliderWidgetAccessor) ((Object) this)).getValue();
 	}
 
-	private double getValue() throws Exception {
-		SliderWidget self = getBase();
-		return self.getClass().getField("value").getDouble(self);
+	private float getAlpha() {
+		return ((ClickableWidgetAccessor) ((Object) this)).getAlpha();
 	}
 
 	@Overwrite
@@ -48,12 +46,15 @@ public class SliderWidgetMixin {
 		int headInset = 2;
 		int headRaise = 2;
 
-		context.fill(self.getX(),self.getY(),headX,self.getY() + self.getHeight(),0xFF0C0C0C);
-		context.enableScissor(self.getX(),self.getY(),headX,self.getY() + self.getHeight());
-		context.fill(self.getX() + meterInset,self.getY() + meterInset,headX - meterInset,self.getY() + self.getHeight() - meterInset,0xFF1C1C1C);
+		context.fill(self.getX(), self.getY(), headX, self.getY() + self.getHeight(), 0xFF0C0C0C);
+		context.enableScissor(self.getX(), self.getY(), headX, self.getY() + self.getHeight());
+		context.fill(self.getX() + meterInset, self.getY() + meterInset, headX - meterInset,
+				self.getY() + self.getHeight() - meterInset, 0xFF1C1C1C);
 		context.disableScissor();
 
-		context.drawCenteredTextWithShadow(minecraftClient.textRenderer, self.getMessage(), self.getX() + self.getWidth() / 2, self.getY() + self.getHeight() / 2 - minecraftClient.textRenderer.fontHeight / 2, 0xFFFFFFFF);
+		context.drawCenteredTextWithShadow(minecraftClient.textRenderer, self.getMessage(),
+				self.getX() + self.getWidth() / 2,
+				self.getY() + self.getHeight() / 2 - minecraftClient.textRenderer.fontHeight / 2, 0xFFFFFFFF);
 
 		context.fill(headX, self.getY() - headRaise, headX + headWidth, self.getY() + self.getHeight(), 0xFF222222);
 		context.fill(headX + headInset, self.getY() + headInset - headRaise, headX + headWidth - headInset,

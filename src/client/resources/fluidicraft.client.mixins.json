@@ -4,7 +4,9 @@
 	"compatibilityLevel": "JAVA_17",
 	"client": [
 		"PressableWidgetMixin",
-		"SliderWidgetMixin"
+		"SliderWidgetMixin",
+		"ClickableWidgetAccessor",
+		"SliderWidgetAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1
